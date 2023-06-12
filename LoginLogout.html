@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://use.fontawesome.com/8e4379dc54.js"></script>
     <link rel="stylesheet" href="font-awesome/css/font-awesome.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Sign In & Sign Up Page</title>
     <link rel="stylesheet" href="Style.css">
 </head>
@@ -12,23 +13,23 @@
     <div class="container ccontainer">
         <div class="forms-container">
             <div class="signin-signup">
-                <form action="" class="sign-in-form">
+                <form action="https://localhost:44366/api/users/login" class="sign-in-form" method="post">
                     <h2 class="title" id="one">Sign In</h2>
                     <div class="input-field">
                         <i class="fa fa-user"></i>
-                        <input type="text" placeholder="Username">
+                        <input type="text" placeholder="Email" name="Email">
                     </div>
-
+                
                     <div class="input-field">
                         <i class="fa fa-lock "></i>
-                        <input type="password" placeholder="Password">
+                        <input type="password" placeholder="Password" name="Password">
                     </div>
                     <input type="submit" value="Login" class="btn solid">
-
+                
                     <p class="social-text">Or sign in with social platforms</p>
                     <div class="social-media">
                         <a href="#" class="social-icon">
-                        <i class="fa fa-facebook-f"></i>
+                            <i class="fa fa-facebook-f"></i>
                         </a>
                         <a href="#" class="social-icon">
                             <i class="fa fa-twitter"></i>
@@ -41,6 +42,7 @@
                         </a>
                     </div>
                 </form>
+                
 
                 <form action="" class="sign-up-form">
                     <h2 class="title">Sign Up</h2>
@@ -88,7 +90,6 @@
                 </form>
             </div>
         </div>
-
         <div class="panel-container">
             <div class="panel left-panel">
                 <div class="content">
@@ -116,6 +117,37 @@
 
     </div>
 </footer>
+
+<script>
+  // Function to handle the login form submission
+  async function login() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    try {
+      // Make the API request
+      const response = await axios.post('https://localhost:44366/api/users/login', { email, password });
+
+      // Handle the response
+      const { data } = response;
+      if (data.token) {
+        // Login successful
+        // Store the token in local storage or a cookie for future use
+        localStorage.setItem('token', data.token);
+
+        // Redirect the user to the desired page or perform any other actions
+        window.location.href = '/dashboard.html';
+      } else {
+        // Login failed
+        alert(data.message);
+      }
+    } catch (error) {
+      // Handle any errors
+      console.error(error);
+      alert('An error occurred during login.');
+    }
+  }
+</script>
     <script src="app.js"></script>
 </body>
 </html>
