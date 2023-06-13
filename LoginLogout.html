@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://use.fontawesome.com/8e4379dc54.js"></script>
     <link rel="stylesheet" href="font-awesome/css/font-awesome.css">
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Sign In & Sign Up Page</title>
     <link rel="stylesheet" href="Style.css">
 </head>
@@ -13,26 +12,26 @@
     <div class="container ccontainer">
         <div class="forms-container">
             <div class="signin-signup">
-                <form action="https://localhost:44366/api/users/login" class="sign-in-form" method="post">
+                <form action="" class="sign-in-form">
                     <h2 class="title" id="one">Sign In</h2>
                     <div class="input-field">
                         <i class="fa fa-user"></i>
-                        <input type="text" placeholder="Email" name="Email">
+                        <input type="text" placeholder="Username">
                     </div>
-                
+
                     <div class="input-field">
                         <i class="fa fa-lock "></i>
-                        <input type="password" placeholder="Password" name="Password">
+                        <input type="password" placeholder="Password">
                     </div>
                     <label class="checkbox">
                         <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
                       </label>
                     <input type="submit" value="Login" class="btn solid">
-                
+
                     <!-- <p class="social-text">Or sign in with social platforms</p>
                     <div class="social-media">
                         <a href="#" class="social-icon">
-                            <i class="fa fa-facebook-f"></i>
+                        <i class="fa fa-facebook-f"></i>
                         </a>
                         <a href="#" class="social-icon">
                             <i class="fa fa-twitter"></i>
@@ -45,7 +44,6 @@
                         </a>
                     </div> -->
                 </form>
-                
 
                 <form action="" class="sign-up-form">
                     <h2 class="title">Sign Up</h2>
@@ -75,7 +73,7 @@
                     </div>
                     <input type="submit" value="Sign Up" class="btn solid">
 
-                    <p class="social-text">Or sign up with social platforms</p>
+                    <!-- <p class="social-text">Or sign up with social platforms</p>
                     <div class="social-media">
                         <a href="#" class="social-icon">
                         <i class="fa fa-facebook-f"></i>
@@ -89,10 +87,11 @@
                         <a href="#" class="social-icon">
                             <i class="fa fa-linkedin-square"></i>
                         </a>
-                    </div>
+                    </div> -->
                 </form>
             </div>
         </div>
+
         <div class="panel-container">
             <div class="panel left-panel">
                 <div class="content">
@@ -120,36 +119,35 @@
 
     </div>
 </footer>
-
 <script>
-  // Function to handle the login form submission
-  async function login() {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    // Get the checkbox and input elements
+const checkbox = document.getElementById('rememberMe');
+const emailInput = document.getElementById('email');
+const passwordInput = document.getElementById('password');
 
-    try {
-      // Make the API request
-      const response = await axios.post('https://localhost:44366/api/users/login', { email, password });
+// Retrieve the stored email and password from local storage
+const storedEmail = localStorage.getItem('rememberedEmail');
+const storedPassword = localStorage.getItem('rememberedPassword');
 
-      // Handle the response
-      const { data } = response;
-      if (data.token) {
-        // Login successful
-        // Store the token in local storage or a cookie for future use
-        localStorage.setItem('token', data.token);
+// Fill the email and password fields if they are stored
+if (storedEmail && storedPassword) {
+  emailInput.value = storedEmail;
+  passwordInput.value = storedPassword;
+}
 
-        // Redirect the user to the desired page or perform any other actions
-        window.location.href = '/dashboard.html';
-      } else {
-        // Login failed
-        alert(data.message);
-      }
-    } catch (error) {
-      // Handle any errors
-      console.error(error);
-      alert('An error occurred during login.');
-    }
+// Add event listener to checkbox
+checkbox.addEventListener('change', function() {
+  if (this.checked) {
+    // Save the email and password to local storage
+    localStorage.setItem('rememberedEmail', emailInput.value);
+    localStorage.setItem('rememberedPassword', passwordInput.value);
+  } else {
+    // Clear the stored email and password
+    localStorage.removeItem('rememberedEmail');
+    localStorage.removeItem('rememberedPassword');
   }
+});
+
 </script>
     <script src="app.js"></script>
 </body>
