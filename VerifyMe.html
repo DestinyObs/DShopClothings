@@ -25,14 +25,15 @@
                 
                         <div>
                         <input class="input" type="number" pattern="[0-9]*"  value="" inputtype="numeric" autocomplete="one-time-code" id="otc-1" required>
-                
-                        <!-- Autocomplete not to put on other input -->
+
+                        <!-- Autocomplete nput on other input -->
                         <input class="input" type="number" pattern="[0-9]*" min="0" max="9" maxlength="1"  value="" inputtype="numeric" id="otc-2" required>
                         <input class="input" type="number" pattern="[0-9]*" min="0" max="9" maxlength="1"  value="" inputtype="numeric" id="otc-3" required>
                         <input class="input" type="number" pattern="[0-9]*" min="0" max="9" maxlength="1"  value="" inputtype="numeric" id="otc-4" required>
                         <input class="input" type="number" pattern="[0-9]*" min="0" max="9" maxlength="1"  value="" inputtype="numeric" id="otc-5" required>
                         <input class="input" type="number" pattern="[0-9]*" min="0" max="9" maxlength="1"  value="" inputtype="numeric" id="otc-6" required>
                         </div>
+                        <a value="ResendOTP" name="Resend"  > Resend OTP </a>
                     </fieldset>
                 </form>
             </div>
@@ -57,6 +58,10 @@
     </div>
 </footer>
 <script>
+	let verificationCode = document.querySelectorAll('input');
+
+	
+
   let in1 = document.getElementById('otc-1'),
     ins = document.querySelectorAll('input[type="number"]'),
 	 splitNumber = function(e) {

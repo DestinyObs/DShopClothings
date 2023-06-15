@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="icon" type="image/png" href="img/logo.png">
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
@@ -338,8 +339,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-9 col-md-9">
-                    <div class="row">
+                <div id="women" class="col-lg-9 col-md-9">
+                    <h3 style="margin-bottom: 20px;">Women</h3>
+                    <div class="row product-grid">
                         <div class="col-lg-4 col-md-6">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="img/shop/shop-1.jpg">
@@ -348,7 +350,7 @@
                                         <li><a href="img/shop/shop-1.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
                                         <li><a href="#"><span class="icon_heart_alt"></span></a></li>
                                         <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                                    </ul>
+                                    </ul> 
                                 </div>
                                 <div class="product__item__text">
                                     <h6><a href="#">Furry hooded parka</a></h6>
@@ -542,13 +544,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-12 text-center">
-                            <div class="pagination__option">
-                                <a href="#">1</a>
-                                <a href="#">2</a>
-                                <a href="#">3</a>
-                                <a href="#"><i class="fa fa-angle-right"></i></a>
-                            </div>
+                    </div>
+                    <div class="col-lg-12 text-center">
+                        <div class="pagination__option">
+                            <a class="page-link prev-page" style="margin-bottom: -10vw;"><i class="fa fa-angle-left"></i></a>
+                            <a class="page-link"   style="margin-bottom: -10vw; text-align: center;">1</a>
+                            <a class="page-link"   style="margin-bottom: -10vw;">2</a>
+                            <a class="page-link"   style="margin-bottom: -10vw;">3</a>
+                            <a class="page-link   next-page" style="margin-bottom: -10vw;"><i class="fa fa-angle-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -708,6 +711,108 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/jquery.nicescroll.min.js"></script>
     <script src="js/main.js"></script>
+    
+<script>
+    // Get the page links
+    const pageLinks = document.querySelectorAll('.page-link');
+    const prevPageLink = document.querySelector('.prev-page');
+    const nextPageLink = document.querySelector('.next-page');
+  
+    // Define the number of products per page and the current page
+    const productsPerPage = 9;
+    let currentPage = 1;
+  
+    // Function to display products for the current page
+    function displayProducts() {
+      // Get all the product items
+      const productItems = document.querySelectorAll('.product-item');
+  
+      // Calculate the range of products to display
+      const startIndex = (currentPage - 1) * productsPerPage;
+      const endIndex = startIndex + productsPerPage;
+  
+      // Hide all product items
+      productItems.forEach(item => {
+        item.style.display = 'none';
+      });
+  
+      // Show products for the current page
+      for (let i = startIndex; i < endIndex && i < productItems.length; i++) {
+        const productItem = productItems[i];
+        productItem.style.display = 'block';
+      }
+  
+      // Disable/enable previous and next page links based on current page
+      if (currentPage === 1) {
+        prevPageLink.classList.add('disabled');
+      } else {
+        prevPageLink.classList.remove('disabled');
+      }
+  
+      if (currentPage === Math.ceil(productItems.length / productsPerPage)) {
+        nextPageLink.classList.add('disabled');
+      } else {
+        nextPageLink.classList.remove('disabled');
+      }
+    }
+  
+    // Function to handle page link click event
+    function handlePageLinkClick(e) {
+      e.preventDefault();
+  
+      // Remove the active class from all page links
+      pageLinks.forEach(link => {
+        link.classList.remove('active');
+      });
+  
+      // Add the active class to the clicked link
+      e.target.classList.add('active');
+  
+      // Get the page number from the clicked link
+      const page = parseInt(e.target.innerText);
+  
+      // Update the current page
+      currentPage = page;
+  
+      // Display the products for the current page
+      displayProducts();
+    }
+  
+    // Function to handle previous page link click event
+    function handlePrevPageLinkClick(e) {
+      e.preventDefault();
+  
+      if (currentPage > 1) {
+        currentPage--;
+        displayProducts();
+      }
+    }
+  
+    // Function to handle next page link click event
+    function handleNextPageLinkClick(e) {
+      e.preventDefault();
+  
+      const productItems = document.querySelectorAll('.product-item');
+      const totalPages = Math.ceil(productItems.length / productsPerPage);
+  
+      if (currentPage < totalPages) {
+        currentPage++;
+        displayProducts();
+      }
+    }
+  
+    // Add click event listeners to the page links
+    pageLinks.forEach(link => {
+      link.addEventListener('click', handlePageLinkClick);
+    });
+  
+    // Add click event listeners to the previous and next page links
+    prevPageLink.addEventListener('click', handlePrevPageLinkClick);
+    nextPageLink.addEventListener('click', handleNextPageLinkClick);
+  
+    // Initially display the products for the first page
+    displayProducts();
+  </script>
 </body>
 
 </html>

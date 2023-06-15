@@ -8,10 +8,14 @@
     <title>Sign In & Sign Up Page</title>
     <link rel="stylesheet" href="Style.css">
 </head>
+
+
 <body>
     <div class="container ccontainer">
         <div class="forms-container">
             <div class="signin-signup">
+        <div class="offcanvas__close">+</div>
+
                 <form action="" class="sign-in-form">
                     <h2 class="title" id="one">Sign In</h2>
                     <div class="input-field">
@@ -45,50 +49,35 @@
                     </div> -->
                 </form>
 
-                <form action="" class="sign-up-form">
+                <form id="target-section1" action="https://localhost:7259/api/User/register" method="POST" class="sign-up-form">
                     <h2 class="title">Sign Up</h2>
                     <div class="input-field">
-                        <i class="fa fa-user "></i>
-                        <input type="text" placeholder="Username">
+                      <i class="fa fa-user"></i>
+                      <input type="text" placeholder="Username" name="username" required>
                     </div>
-
+                  
                     <div class="input-field">
-                        <i class="fa fa-envelope "></i>
-                        <input type="email" placeholder="Email">
+                      <i class="fa fa-envelope"></i>
+                      <input type="email" placeholder="Email" name="email" required>
                     </div>
-
+                  
                     <div class="input-field">
-                        <i class="fa fa-phone "></i>
-                        <input type="email" placeholder="Phone-Number">
+                      <i class="fa fa-phone"></i>
+                      <input type="text" placeholder="Phone Number" name="phoneNumber" required>
                     </div>
-
+                  
                     <div class="input-field">
-                        <i class="fa fa-lock "></i>
-                        <input type="password" placeholder="Password">
+                      <i class="fa fa-lock"></i>
+                      <input type="password" placeholder="Password" name="password" required>
                     </div>
-
+                  
                     <div class="input-field">
-                        <i class="fa fa-lock "></i>
-                        <input type="password" placeholder="Re-peat Password">
+                      <i class="fa fa-lock"></i>
+                      <input type="password" placeholder="Confirm Password" name="confirmPassword" required>
                     </div>
                     <input type="submit" value="Sign Up" class="btn solid">
 
-                    <!-- <p class="social-text">Or sign up with social platforms</p>
-                    <div class="social-media">
-                        <a href="#" class="social-icon">
-                        <i class="fa fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fa fa-google"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fa fa-linkedin-square"></i>
-                        </a>
-                    </div> -->
-                </form>
+                  </form>
             </div>
         </div>
 
@@ -120,10 +109,52 @@
     </div>
 </footer>
 <script>
-    // Get the checkbox and input elements
-const checkbox = document.getElementById('rememberMe');
-const emailInput = document.getElementById('email');
-const passwordInput = document.getElementById('password');
+    // Get the form element and input fields
+const signUpForm = document.querySelector('.sign-up-form');
+const userNameInput = signUpForm.querySelector('input[name="username"]');
+const emailInput = signUpForm.querySelector('input[name="email"]');
+const phoneNumberInput = signUpForm.querySelector('input[name="phoneNumber"]');
+const passwordInput = signUpForm.querySelector('input[name="password"]');
+const confirmPasswordInput = signUpForm.querySelector('input[name="confirmPassword"]');
+
+// Add an event listener to the form submit event
+signUpForm.addEventListener('submit', (e) => {
+  e.preventDefault(); // Prevent the form from submitting
+
+  // Create an object with the user data
+  const userData = {
+    userName: userNameInput.value,
+    email: emailInput.value,
+    phoneNumber: phoneNumberInput.value,
+    password: passwordInput.value,
+    confirmPassword: confirmPasswordInput.value
+  };
+
+  // Make the API request
+  fetch("https://localhost:7259/api/User/register", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(userData),
+  })
+    .then(response => {
+      if (response.ok) {
+        // Redirect to the verification page
+        window.location.href = "/verifyme.html?status=emailsent";
+      } else {
+        // Handle the error response
+        // You can display an error message or take any other appropriate action
+        console.error("Registration failed:", response.statusText);
+      }
+    })
+    .catch(error => {
+      console.error("Registration failed:", error);
+    });
+});
+
+// Get the checkbox element
+const rememberMeCheckbox = document.getElementById('rememberMe');
 
 // Retrieve the stored email and password from local storage
 const storedEmail = localStorage.getItem('rememberedEmail');
@@ -136,7 +167,7 @@ if (storedEmail && storedPassword) {
 }
 
 // Add event listener to checkbox
-checkbox.addEventListener('change', function() {
+rememberMeCheckbox.addEventListener('change', function() {
   if (this.checked) {
     // Save the email and password to local storage
     localStorage.setItem('rememberedEmail', emailInput.value);
