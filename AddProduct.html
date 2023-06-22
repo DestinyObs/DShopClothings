@@ -129,21 +129,31 @@
                             <h5>Add Product</h5>
 
                             <form action="#">
+                                
+                                
+                                <div class="row">
+                                    <div class="col-md-8">
                                 <label>Product Name:</label>
                                 <input type="text" placeholder="Name">
                                 
+                                </div>
                                 
+                                <div class="col-md-4">
+                                <label>Product Price:</label>
+                                <input type="number" placeholder="Price: 20500">
+                                </div>
+                                </div>
                                 <label>Product Description:</label>
                                 <textarea  placeholder="Product Description"></textarea>
 
                                 
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-2">
                                         <label for="sizeByNumber">Size by Number:</label>
                                         <input type="number" class="form-control" id="sizeByNumber" name="sizeByNumber" min="10" max="99" placeholder="e.g: 10" >
                                     </div>
                                     
-                                    <div class=" col-md-8">
+                                    <div class=" col-md-2">
                                         <label for="sizeByLetter">Size by Letter:</label>
                                         <select  class="form-control sel" id="sizeByLetter" name="sizeByLetter">
                                             <option value="">Select Size</option>
@@ -152,6 +162,28 @@
                                             <option value="M">M</option>
                                             <option value="L">L</option>
                                             <option value="XL">XL</option>
+                                        </select>
+                                    </div>
+
+                                    <div class=" col-md-4">
+                                        <label for="sizeByLetter">To Category:</label>
+                                        <select  class="form-control sel">
+                                            <option value="">Select Product Category</option>
+                                            <option value="Men">Men</option>
+                                            <option value="Women">Women</option>
+                                            <option value="Kids">Kids</option>
+                                            <option value="Cosmetic">Cosmetic</option>
+                                            <option value="Accessories">Accessories</option>
+                                        </select>
+                                    </div>
+
+                                    <div class=" col-md-4">
+                                        <label for="sizeByLetter">To Category Item:</label>
+                                        <select  class="form-control sel">
+                                            <option value="">Select Product CategoryItem</option>
+                                            <option value="XS">Jeans</option>
+                                            <option value="S">Shirts</option>
+                                            <option value="M">Skirts</option>
                                         </select>
                                     </div>
 
@@ -173,8 +205,45 @@
 
                                         <input type="text" placeholder="e.g: -30%">
                                     </div>
-
-                                    
+                                </div>
+                                <div class="sidebar__color "  >
+                                    <div class="size__list color__list row" >
+                                        <label for="black" class="col-md-1">
+                                            Blacks
+                                            <input type="checkbox" id="black">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label for="whites" class="col-md-1">
+                                            Whites
+                                            <input type="checkbox" id="whites">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label for="reds" class="col-md-1">
+                                            Reds
+                                            <input type="checkbox" id="reds">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label for="greys" class="col-md-1">
+                                            Greys
+                                            <input type="checkbox" id="greys">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label for="blues" class="col-md-1">
+                                            Blues
+                                            <input type="checkbox" id="blues">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label for="greens" class="col-md-1">
+                                            Greens
+                                            <input type="checkbox" id="greens">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label for="beige" class="col-md-1">
+                                            Others
+                                            <input type="checkbox" id="beige">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
                                 </div>
                                 <button type="submit" class="site-btn">Add Product</button>
                             </form>
