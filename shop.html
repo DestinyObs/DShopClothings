@@ -131,13 +131,32 @@
                             </div>
                             <div class="categories__accordion">
                                 <div class="accordion" id="accordionExample">
+                                    <div id="accordionExample">
+                                        <!-- @foreach (var category in categories)
+                                        {
+                                            <div class="card-heading">
+                                                <a data-toggle="collapse" data-target="#collapse@(category.Id)">@category.Name</a>
+                                            </div>
+                                            <div id="collapse@(category.Id)" class="collapse" data-parent="#accordionExample">
+                                                <div class="card-body">
+                                                    <ul>
+                                                        @foreach (var categoryItem in category.CategoryItems)
+                                                        {
+                                                            <li><a href="#">@categoryItem</a></li>
+                                                        }
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        } -->
+                                    </div>
+                                    
                                     <div class="card">
                                         <div class="card-heading active">
-                                            <a data-toggle="collapse" data-target="#collapseOne">Women</a>
+                                             <a data-toggle="collapse" data-target="#collapseOne">Women</a> <!-- Category Name-->
                                         </div>
                                         <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
                                             <div class="card-body">
-                                                <ul>
+                                                <ul> <!-- Category items-->
                                                     <li><a href="#">Coats</a></li>
                                                     <li><a href="#">Jackets</a></li>
                                                     <li><a href="#">Dresses</a></li>
@@ -241,21 +260,6 @@
                                 <h4>Shop by size</h4>
                             </div>
                             <div class="size__list">
-                                <label for="xxs">
-                                    xxs
-                                    <input type="checkbox" id="xxs">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="xs">
-                                    xs
-                                    <input type="checkbox" id="xs">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="xss">
-                                    xs-s
-                                    <input type="checkbox" id="xss">
-                                    <span class="checkmark"></span>
-                                </label>
                                 <label for="s">
                                     s
                                     <input type="checkbox" id="s">
@@ -264,11 +268,6 @@
                                 <label for="m">
                                     m
                                     <input type="checkbox" id="m">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label for="ml">
-                                    m-l
-                                    <input type="checkbox" id="ml">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label for="l">
@@ -285,7 +284,7 @@
                         </div>
                         <div class="sidebar__color">
                             <div class="section-title">
-                                <h4>Shop by size</h4>
+                                <h4>Shop by Color</h4>
                             </div>
                             <div class="size__list color__list">
                                 <label for="black">
@@ -313,19 +312,14 @@
                                     <input type="checkbox" id="blues">
                                     <span class="checkmark"></span>
                                 </label>
-                                <label for="beige">
-                                    Beige Tones
-                                    <input type="checkbox" id="beige">
-                                    <span class="checkmark"></span>
-                                </label>
                                 <label for="greens">
                                     Greens
                                     <input type="checkbox" id="greens">
                                     <span class="checkmark"></span>
                                 </label>
-                                <label for="yellows">
-                                    Yellows
-                                    <input type="checkbox" id="yellows">
+                                <label for="beige">
+                                    Others
+                                    <input type="checkbox" id="beige">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
@@ -340,7 +334,8 @@
                                 <div class="product__item__pic set-bg" data-setbg="img/shop/shop-1.jpg">
                                     <div class="label new">New</div>
                                     <ul class="product__hover">
-                                        <li><a href="img/shop/shop-1.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
+                                        <!-- <li><a href="img/shop/shop-1.jpg" class="image-popup"><span class="arrow_expand"></span></a></li> -->
+                                        <li><a href="./product-details.html"><span class="icon_search"></span></a></li>
                                         <li><a href="#"><span class="icon_heart_alt"></span></a></li>
                                         <li><a href="#"><span class="icon_bag_alt"></span></a></li>
                                     </ul> 
@@ -354,7 +349,7 @@
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                     </div>
-                                    <div class="product__price">$ 59.0</div>
+                                    <div class="product__price">₦ 53,000</div>
                                 </div>
                             </div>
                         </div>
@@ -362,8 +357,8 @@
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="img/shop/shop-1.jpg">
                                     <div class="label new">New</div>
-                                    <ul class="product__hover">
-                                        <li><a href="img/shop/shop-1.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
+                                    <ul class="product__hover">                                        
+                                        <li><a href="./product-details.html"><span class="icon_search"></span></a></li>
                                         <li><a href="#"><span class="icon_heart_alt"></span></a></li>
                                         <li><a href="#"><span class="icon_bag_alt"></span></a></li>
                                     </ul> 
@@ -377,7 +372,7 @@
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                     </div>
-                                    <div class="product__price">$ 59.0</div>
+                                    <div class="product__price">₦ 59.0</div>
                                 </div>
                             </div>
                         </div>
