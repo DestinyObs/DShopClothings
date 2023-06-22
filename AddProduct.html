@@ -125,43 +125,62 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="contact__content">
-                        <!-- <div class="contact__address">
-                            <h5>Contact info</h5>
-                            <ul>
-                                <li>
-                                    <h6><i class="fa fa-map-marker"></i> Address</h6>
-                                    <p>44 Chief Collins Uchidiuno St, Lekki Phase I 106104, Lagos</p>
-                                </li>
-                                <li>
-                                    <h6><i class="fa fa-phone"></i> Phone</h6>
-                                    <p><span>+234-904-240-1678</span></p>
-                                </li>
-                                <li>
-                                    <h6><i class="fa fa-headphones"></i> Support</h6>
-                                    <p>destinyobueh14@gmail.com</p>
-                                </li>
-                            </ul>
-                        </div> -->
                         <div class="contact__form">
                             <h5>Add Product</h5>
+
                             <form action="#">
-                                <input type="text" placeholder="Add Product">
-                                <input type="text" placeholder="Add Product">
-                                <input type="email" placeholder="Add Product">
-                                <textarea placeholder="Add Product"></textarea>
+                                <label>Product Name:</label>
+                                <input type="text" placeholder="Name">
+                                
+                                
+                                <label>Product Description:</label>
+                                <textarea  placeholder="Product Description"></textarea>
+
+                                
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="sizeByNumber">Size by Number:</label>
+                                        <input type="number" class="form-control" id="sizeByNumber" name="sizeByNumber" min="10" max="99" placeholder="e.g: 10" >
+                                    </div>
+                                    
+                                    <div class=" col-md-8">
+                                        <label for="sizeByLetter">Size by Letter:</label>
+                                        <select  class="form-control sel" id="sizeByLetter" name="sizeByLetter">
+                                            <option value="">Select Size</option>
+                                            <option value="XS">XS</option>
+                                            <option value="S">S</option>
+                                            <option value="M">M</option>
+                                            <option value="L">L</option>
+                                            <option value="XL">XL</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="sizeByLetter">Product Brand:</label>
+                                        <input type="email" placeholder="Your Brand">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label for="sizeByLetter">Product Image:</label>
+                                        <input type="" placeholder="Add Image">
+                                    </div>
+                                    
+                                    <div class="col-md-4">
+                                        <label for="sizeByLetter">Discount?:</label>
+
+                                        <input type="text" placeholder="e.g: -30%">
+                                    </div>
+
+                                    
+                                </div>
                                 <button type="submit" class="site-btn">Add Product</button>
                             </form>
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col-lg-6 col-md-6">
-                    <div class="contact__map">
-                        <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.6482254551292!2d3.4736622174438474!3d6.439202399999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103bf44b45f69371%3A0x97e56606c6e46923!2s44%20Chief%20Collins%20Uchidiuno%20St%2C%20Lekki%20Phase%20I%20106104%2C%20Lagos!5e0!3m2!1sen!2sng!4v1686898957651!5m2!1sen!2sng"
-                        height="780" style="border:0" allowfullscreen="">
-                    </iframe>
-                </div>
-            </div> -->
         </div>
     </div>
 </section>
