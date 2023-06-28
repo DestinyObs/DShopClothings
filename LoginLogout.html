@@ -20,18 +20,22 @@
         <div class="offcanvas__close">+</div>
 
                 <form action="" class="sign-in-form">
-                    <h2 class="title" id="one">Sign In</h2>
+                  <div class="header__logo">
+                    <a href="./index.html"><img style="height: 64px;" src="img/logoC.png" alt=""></a>
+                </div>
+
+                    <h4 class="title" style="font-size: 20px; text-align: center;" id="one">Welcome to DShop</h4>
+                    <p style="font-size: 13px; text-align: center;">Type your e-mail and password to log in to your DShop account.</p>
                     <div class="input-field">
                         <i class="fa fa-user"></i>
-                        <input type="text" placeholder="Username">
+                        <input type="text" placeholder="E-mail">
                     </div>
 
                     <div class="input-field">
                         <i class="fa fa-lock "></i>
                         <input type="password" placeholder="Password">
                     </div>
-                      <a href="" style="text-decoration: none; color: black;">Forgot Password</a>
-
+                    <a href="#" id="forgot-password-link" style="text-decoration: none; color: black;">Forgot Password</a>
                     <input type="submit" value="Login" class="btn solid">
                    
                 </form>
@@ -52,7 +56,6 @@
                       <i class="fa fa-phone"></i>
                       <input type="text" placeholder="Phone Number" name="phoneNumber" required>
                     </div>
-                  
                     <div class="input-field">
                       <i class="fa fa-lock"></i>
                       <input type="password" placeholder="Password" name="password" required>
@@ -96,6 +99,39 @@
     </div>
 </footer>
 <script>
+// Get the forgot password link and the forgot password popup form
+const forgotPasswordLink = document.getElementById('forgot-password-link');
+        const forgotPasswordPopup = document.getElementById('forgot-password-popup');
+
+        // Add an event listener to the forgot password link
+        forgotPasswordLink.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent the default link behavior
+            forgotPasswordPopup.style.display = 'block'; // Display the forgot password popup form
+        });
+
+        // Get the forgot password form and input field
+        const forgotPasswordForm = document.querySelector('.forgot-password-form');
+        forgotPasswordForm.querySelector('input[name="email"]');
+
+        // Add an event listener to the forgot password form submit event
+        forgotPasswordForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent the form from submitting
+
+            // Retrieve the email entered by the user
+            const email = emailInput.value;
+
+            // Perform the necessary actions for resetting the password
+            // For example, send a password reset email to the provided email address
+
+            // Display a success message or redirect the user to a confirmation page
+            alert('Password reset email sent to ' + email);
+
+            // Reset the form and close the popup
+            forgotPasswordForm.reset();
+            forgotPasswordPopup.style.display = 'none';
+        });
+
+
     // Get the form element and input fields
 const signUpForm = document.querySelector('.sign-up-form');
 const userNameInput = signUpForm.querySelector('input[name="username"]');

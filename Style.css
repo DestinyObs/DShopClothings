@@ -7,6 +7,10 @@
     text-decoration: none;
 }
 
+.header_logo{
+    color: #ca1515;
+
+}
 
 .otc {
 	position: relative;
@@ -150,7 +154,7 @@ form.sign-up-form{
     opacity: 0;
 }
 .title{
-    font-size: 3.2rem;
+    font-size: 10vw;
     color: #ca1515;
     margin-top: 10px;
 }
