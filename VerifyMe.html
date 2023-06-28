@@ -8,16 +8,47 @@
     <title>Verify</title>
     <link rel="stylesheet" href="Style.css">
 </head>
+
+<style>
+	
+@media (max-width: 570px) {
+    form{
+        padding: 50vw 1.5rem;
+    }
+
+    .image{
+        display: none; 
+    }
+
+    .panel .content{
+        padding: 0.5rem 1rem;
+    }
+
+    .ccontainer:before{
+        bottom: 72%;
+        left:  50%;
+
+    }
+
+    .ccontainer.sign-up-mode:before {
+        bottom: 19%;
+        left:  50%;
+
+    }
+}
+</style>
+
 <body>
     <div class="container ccontainer">
         <div class="forms-container">
             <div class="signin-signup">
                 <form style="margin-top: -22vw;" class="otc" name="one-time-code" action="#">
 					<div class="header__logo">
-                        <a href="./index.html"><img style="width: 50px;" src="img/logoC.png" alt=""></a>
-                    </div>
+						<a href="./index.html" ><img style="height: 100px;" src="img/logoC.png" alt=""></a>
+					</div>
                     <fieldset>
-                        <h3 class="title" id="one" style="text-align: center; font-size: 20px;">Verify</h3>
+                        <h3 class="title" id="one" style="font-size: 20px; text-align: center;">Verify</h3>
+						<p style="font-size: 13px; text-align: center;">An OTP as been sent to your mail, fill it in before it expires, if you did not get any mail reset OTP</p>
                         <br>
                         <label for="otc-1">Number 1</label>
                         <label for="otc-2">Number 2</label>
@@ -36,7 +67,8 @@
                         <input class="input" type="number" pattern="[0-9]*" min="0" max="9" maxlength="1"  value="" inputtype="numeric" id="otc-5" required>
                         <input class="input" type="number" pattern="[0-9]*" min="0" max="9" maxlength="1"  value="" inputtype="numeric" id="otc-6" required>
                         </div>
-                        <a value="ResendOTP" name="Resend"  href="./contact.html" class="verify"> Resend OTP </a>
+                        <a style="text-decoration: none; float: left; color: black;" href="#" value="ResendOTP" name="Resend"  href="#" class="verify"> Resend OTP </a>
+                        <a style="text-decoration: none; float: right; color: black;" href="./index.html" class=""> Cancel </a>
                     </fieldset>
                 </form>
             </div>
@@ -45,8 +77,8 @@
         <div class="panel-container">
             <div class="panel left-panel">
                 <div class="content">
-                    <h3>Verify ! ! !</h3>
-                    <p>To Enjoy Free access to our services you will be required to Verify your registration detials
+                    <h3>User Verification</h3>
+                    <p>A verification code as been sent to you mail, please confirm before the code expeires
                     </p>
                         <!-- <button class="btn transparent" id="sign-up-btn">Sign Up</button> -->
                 </div>
@@ -55,74 +87,7 @@
         </div>
     </div>
 
-	<!-- <footer class="footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-4 col-md-6 col-sm-7">
-					<div class="footer__about">
-						<div class="footer__logo">
-							<a href="./index.html"><img src="img/logo.png" style="height: 50px; width: 100px;" alt=""></a>
-						</div>
-						<p>"Discover the latest trends. Shop the hottest styles. Elevate your fashion game."</p>
-						<div class="footer__payment">
-							<a href="#"><img src="img/payment/payment-1.png" alt=""></a>
-							<a href="#"><img src="img/payment/payment-2.png" alt=""></a>
-							<a href="#"><img src="img/payment/payment-3.png" alt=""></a>
-							<a href="#"><img src="img/payment/payment-4.png" alt=""></a>
-							<a href="#"><img src="img/payment/payment-5.png" alt=""></a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-2 col-md-3 col-sm-5">
-					<div class="footer__widget">
-						<h6>Quick links</h6>
-						<ul>
-							<li><a href="./About.html">About</a></li>
-							<li><a href="./shop.html">Shop</a></li>
-							<li><a href="./contact.html">Contact</a></li>
-							<li><a href="./faq/html">FAQ</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-2 col-md-3 col-sm-4">
-					<div class="footer__widget">
-						<h6>Account</h6>
-						<ul>
-							<li><a href="./UserProfile.html">My Account</a></li>
-							<li><a href="#">Orders Tracking</a></li>
-							<li><a href="./shop-cart.html">My Carts</a></li>
-							<li><a href="./wishlists.html">Wishlist</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-8 col-sm-8">
-					<div class="footer__newslatter">
-						<h6>NEWSLETTER</h6>
-						<form action="#">
-							<input type="email" placeholder="Email">
-							<button type="submit" class="site-btn">Subscribe</button>
-						</form>
-						<div class="footer__social">
-							<a href="https://facebook.com/d.t.w_Destiny_Obs/"><i class="fa fa-facebook"></i></a>
-							<a href="https://twitter.com/DestinyObs/"><i class="fa fa-twitter"></i></a>
-							<a href="https://www.linkedin.com/in/destiny-obs-555aaa239"><i class="fa fa-linkedin"></i></a>
-							<a href="https://instagram.com/d.t.w_Destiny_Obs/"><i class="fa fa-instagram"></i></a>
-							<a href="https://github.com/DestinyObs"><i class="fa fa-github"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. 
-					<div class="footer__copyright__text">
-						<p> &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | Destiny Obs  <i class="fa fa-heart" aria-hidden="true"></i></p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer> 
--->
+		
 	<script>
 	let verificationCode = document.querySelectorAll('input');
 
