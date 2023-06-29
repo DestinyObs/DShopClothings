@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,19 +11,84 @@
     <link rel="icon" type="image/png" href="img/logoC.png">
     <link rel="stylesheet" href="Style.css">
     
-</head>
+    <style>
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+        }
 
+        .modal {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            height: 300px;
+            width: 500px;
+        }
+
+        .modal h3 {
+          text-align: center;
+            margin-top: 0;
+        }
+
+        .modal p {
+          text-align: center;
+            margin-top: 0;
+        }
+
+        .modal-content {
+            margin-top: 50px;
+        }
+
+        .modal-content h3 {
+          padding-bottom: 8px;
+        }
+
+        
+        .modal-content p {
+          padding-bottom: 20px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 0;
+            right: 50px;
+            color: black;
+            cursor: pointer;
+            border: 1px solid black;
+            padding-left: 10px;
+            padding-top: 4px;
+            height: 30px;
+            width: 30px;
+            border-radius: 50px;
+
+        }
+        .spand{
+          position: relative;
+          align-items: center;
+          margin-left: 507px;
+
+        }
+    </style>
+</head>
 
 <body>
     <div class="container ccontainer">
         <div class="forms-container">
             <div class="signin-signup">
-        <div class="offcanvas__close">+</div>
+                <div class="offcanvas__close">+</div>
 
                 <form action="" class="sign-in-form">
-                  <div class="header__logo">
-                    <a href="./index.html"><img style="height: 64px;" src="img/logoC.png" alt=""></a>
-                </div>
+                    <div class="header__logo">
+                        <a href="./index.html"><img style="height: 64px;" src="img/logoC.png" alt=""></a>
+                    </div>
 
                     <h4 class="title" style="font-size: 20px; text-align: center;" id="one">Hello Customer!</h4>
                     <p style="font-size: 13px; text-align: center;">Type your e-mail and password to log in to your DShop account.</p>
@@ -36,91 +102,128 @@
                         <input type="password" placeholder="Password">
                     </div>
                     <a href="#" id="forgot-password-link" style="text-decoration: none; color: black;">Forgot Password</a>
-                    <input type="submit" value="Login" class="btn solid">
-                   
+                    <input type="submit" value="Login" class="btn solid">   
                 </form>
-
-                <form id="target-section1" action="https://localhost:7259/api/User/register" method="POST" class="sign-up-form">
+                
+                <form id="forgot-password-form" class="sign-up-form" style="display: none;">
                   <div class="header__logo">
-                    <a href="./index.html"><img style="height: 64px;" src="img/logoC.png" alt=""></a>
-                </div>
-                  <h4 class="title" style="font-size: 20px; text-align: center;" id="one">Welcome to DShop</h4>
-                  <p style="font-size: 13px; text-align: center;">Fill in your details to get access to a DShop account.
-
-                  </p>
-                    <div class="input-field">
-                      <i class="fa fa-user"></i>
-                      <input type="text" placeholder="Username" name="username" required>
-                    </div>
-                  
-                    <div class="input-field">
+                      <a href="./index.html"><img style="height: 64px;" src="img/logoC.png" alt=""></a>
+                  </div>
+                    <h4 class="title" style="font-size: 20px; text-align: center;" id="one">Forgot Password</h4>
+                    <p style="font-size: 13px; text-align: center;">Enter your email address to reset your password.</p>
+                  <div class="input-field">
                       <i class="fa fa-envelope"></i>
                       <input type="email" placeholder="Email" name="email" required>
+                  </div>
+                  <input type="submit" value="Reset Password" class="btn solid">
+              </form>
+
+                <form id="target-section1" action="https://localhost:7259/api/User/register" method="POST" class="sign-up-form">
+                    <div class="header__logo">
+                        <a href="./index.html"><img style="height: 64px;" src="img/logoC.png" alt=""></a>
                     </div>
-                  
+                    <h4 class="title" style="font-size: 20px; text-align: center;" id="one">Welcome to DShop</h4>
+                    <p style="font-size: 13px; text-align: center;">Fill in your details to get access to a DShop account.</p>
                     <div class="input-field">
-                      <i class="fa fa-phone"></i>
-                      <input type="text" placeholder="Phone Number" name="phoneNumber" required>
+                        <i class="fa fa-user"></i>
+                        <input type="text" placeholder="Username" name="username" required>
                     </div>
+
                     <div class="input-field">
-                      <i class="fa fa-lock"></i>
-                      <input type="password" placeholder="Password" name="password" required>
+                        <i class="fa fa-envelope"></i>
+                        <input type="email" placeholder="Email" name="email" required>
                     </div>
-                  
+
                     <div class="input-field">
-                      <i class="fa fa-lock"></i>
-                      <input type="password" placeholder="Confirm Password" name="confirmPassword" required>
+                        <i class="fa fa-phone"></i>
+                        <input type="text" placeholder="Phone Number" name="phoneNumber" required>
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fa fa-lock"></i>
+                        <input type="password" placeholder="Password" name="password" required>
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fa fa-lock"></i>
+                        <input type="password" placeholder="Confirm Password" name="confirmPassword" required>
                     </div>
                     <input type="submit" value="Sign Up" class="btn solid">
-
-                  </form>
+                </form>
             </div>
         </div>
 
         <div class="panel-container">
             <div class="panel left-panel">
                 <div class="content">
-                    <h3>New Here ?</h3>
-                    <p>To Enjoy Free access to our services you will be required to sign-up, for you to have access to everything we can offer !!!
-                    </p>
-                        <button class="btn transparent" id="sign-up-btn">Sign Up</button>
+                    <h3>New Here?</h3>
+                    <p>To enjoy free access to our services, you will be required to sign up for a DShop account.</p>
+                    <button class="btn transparent" id="sign-up-btn">Sign Up</button>
                 </div>
                 <img src="signin.svg" class="image" alt="">
             </div>
 
             <div class="panel right-panel">
                 <div class="content">
-                    <h3>One Of Us ?</h3>
-                    <p>Please sign-in to access our services pour unlimited services  </p>
-                        <button class="btn transparent" id="sign-in-btn">Sign In</button>
+                    <h3>One Of Us?</h3>
+                    <p>Please sign in to access our services and enjoy our unlimited offerings.</p>
+                    <button class="btn transparent" id="sign-in-btn">Sign In</button>
                 </div>
                 <img src="signup.svg" class="image" alt="">
             </div>
         </div>
     </div>
 
-<footer>
-    <div class="row">
+    <footer>
+        <div class="row">
 
+        </div>
+    </footer>
+
+    <div class="overlay" id="forgot-password-modal-overlay">
+        <div class="modal">
+          <div class="spand">
+            <span class="close-modal" id="close-forgot-password-modal">&times;</span>
+          </div>
+            <div class="modal-content">
+                <h3>Forgot Password</h3>
+                <p>Enter your email address to reset your password.</p>
+                <form id="forgot-password-modal-form">
+                    <div class="input-field">
+                        <i class="fa fa-envelope"></i>
+                        <input type="email" placeholder="Email" name="email" required>
+                    </div>
+                    <input type="submit" value="Reset Password" class="btn solid">
+                </form>
+            </div>
+        </div>
     </div>
-</footer>
-<script>
-// Get the forgot password link and the forgot password popup form
-const forgotPasswordLink = document.getElementById('forgot-password-link');
-        const forgotPasswordPopup = document.getElementById('forgot-password-popup');
+
+    <script>
+        // Get the forgot password link and the forgot password modal overlay
+        const forgotPasswordLink = document.getElementById('forgot-password-link');
+        const forgotPasswordModalOverlay = document.getElementById('forgot-password-modal-overlay');
 
         // Add an event listener to the forgot password link
         forgotPasswordLink.addEventListener('click', (e) => {
             e.preventDefault(); // Prevent the default link behavior
-            forgotPasswordPopup.style.display = 'block'; // Display the forgot password popup form
+            forgotPasswordModalOverlay.style.display = 'flex'; // Display the forgot password modal
         });
 
-        // Get the forgot password form and input field
-        const forgotPasswordForm = document.querySelector('.forgot-password-form');
-        forgotPasswordForm.querySelector('input[name="email"]');
+        // Get the close button for the forgot password modal
+        const closeForgotPasswordModal = document.getElementById('close-forgot-password-modal');
 
-        // Add an event listener to the forgot password form submit event
-        forgotPasswordForm.addEventListener('submit', (e) => {
+        // Add an event listener to the close button
+        closeForgotPasswordModal.addEventListener('click', () => {
+            forgotPasswordModalOverlay.style.display = 'none'; // Hide the forgot password modal
+        });
+
+        // Get the forgot password modal form and input field
+        const forgotPasswordModalForm = document.getElementById('forgot-password-modal-form');
+        const emailInput = forgotPasswordModalForm.querySelector('input[name="email"]');
+
+        // Add an event listener to the forgot password modal form submit event
+        forgotPasswordModalForm.addEventListener('submit', (e) => {
             e.preventDefault(); // Prevent the form from submitting
 
             // Retrieve the email entered by the user
@@ -132,83 +235,13 @@ const forgotPasswordLink = document.getElementById('forgot-password-link');
             // Display a success message or redirect the user to a confirmation page
             alert('Password reset email sent to ' + email);
 
-            // Reset the form and close the popup
-            forgotPasswordForm.reset();
-            forgotPasswordPopup.style.display = 'none';
+            // Reset the form and close the modal
+            forgotPasswordModalForm.reset();
+            forgotPasswordModalOverlay.style.display = 'none';
         });
-
-
-    // Get the form element and input fields
-const signUpForm = document.querySelector('.sign-up-form');
-const userNameInput = signUpForm.querySelector('input[name="username"]');
-const emailInput = signUpForm.querySelector('input[name="email"]');
-const phoneNumberInput = signUpForm.querySelector('input[name="phoneNumber"]');
-const passwordInput = signUpForm.querySelector('input[name="password"]');
-const confirmPasswordInput = signUpForm.querySelector('input[name="confirmPassword"]');
-
-// Add an event listener to the form submit event
-signUpForm.addEventListener('submit', (e) => {
-  e.preventDefault(); // Prevent the form from submitting
-
-  // Create an object with the user data
-  const userData = {
-    userName: userNameInput.value,
-    email: emailInput.value,
-    phoneNumber: phoneNumberInput.value,
-    password: passwordInput.value,
-    confirmPassword: confirmPasswordInput.value
-  };
-
-  // Make the API request
-  fetch("https://localhost:7259/api/User/register", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(userData),
-  })
-    .then(response => {
-      if (response.ok) {
-        // Redirect to the verification page
-        window.location.href = "/verifyme.html?status=emailsent";
-      } else {
-        // Handle the error response
-        // You can display an error message or take any other appropriate action
-        console.error("Registration failed:", response.statusText);
-      }
-    })
-    .catch(error => {
-      console.error("Registration failed:", error);
-    });
-});
-
-// Get the checkbox element
-const rememberMeCheckbox = document.getElementById('rememberMe');
-
-// Retrieve the stored email and password from local storage
-const storedEmail = localStorage.getItem('rememberedEmail');
-const storedPassword = localStorage.getItem('rememberedPassword');
-
-// Fill the email and password fields if they are stored
-if (storedEmail && storedPassword) {
-  emailInput.value = storedEmail;
-  passwordInput.value = storedPassword;
-}
-
-// Add event listener to checkbox
-rememberMeCheckbox.addEventListener('change', function() {
-  if (this.checked) {
-    // Save the email and password to local storage
-    localStorage.setItem('rememberedEmail', emailInput.value);
-    localStorage.setItem('rememberedPassword', passwordInput.value);
-  } else {
-    // Clear the stored email and password
-    localStorage.removeItem('rememberedEmail');
-    localStorage.removeItem('rememberedPassword');
-  }
-});
+    </script>
+</body>
+<script src="app.js">
 
 </script>
-    <script src="app.js"></script>
-</body>
 </html>
