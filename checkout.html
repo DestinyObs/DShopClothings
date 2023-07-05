@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -26,6 +26,42 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
+<style>
+    .modal {
+      display: none; /* Hide the modal by default */
+      position: fixed; /* Position it as fixed */
+      z-index: 9999; /* Make it appear on top of other elements */
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto; /* Enable scrolling if needed */
+      background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
+    }
+    
+    .modal-content {
+      background-color: #fefefe;
+      margin: 10% auto; /* 15% from the top and centered horizontally */
+      padding: 20px;
+      border: 1px solid #888;
+      width: 30%; /* Adjust width as needed */
+    }
+    
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    </style>
+    
 
 <body>
     <!-- Page Preloder -->
@@ -226,21 +262,43 @@
                                         <li>Total <span>$ 750.0</span></li>
                                     </ul>
                                 </div>
-                                <div class="checkout__order__widget">                                   
-                                    <label for="check-payment">
-                                        Cheque payment
-                                        <input type="checkbox" id="check-payment">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label for="paypal">
-                                        PayPal
-                                        <input type="checkbox" id="paypal">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <button type="submit" class="site-btn">Place oder</button>
+                                <button type="submit" onclick="openModal()" class="site-btn">Place oder</button>
                             </div>
                         </div>
+                        <div id="myModal" class="modal">
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                              <span class="close">&times;</span>
+                              <form id="paymentForm">
+                                <a class="site-btn" style=" background-color: navy;" href="" ><h6 style="color: #ffffff; text-align: center;">Pay with <i class="fa fa-paypal" style="align-items: center;"></i></h6></a>
+                                <br>
+                                <h5 style="text-align: center;">Or</h5>
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="checkout__form__input">
+                                  <p>Card Number <span>*</span></p>
+                                  <input type="text" id="cardNumber" name="cardNumber"  required>
+                                </div>
+                            </div>
+                          <div style="display: flex;">
+                            <div class="col-lg-6">
+                                <div class="checkout__form__input">
+                                  <p>Expires <span>*</span></p>
+                                  <input type="text" id="expires" name="expires" placeholder="MM/YYYY" required>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6 ">
+                                <div class="checkout__form__input">
+                                  <p>Card Security Code <span>*</span></p>
+                                  <input type="text" id="cardSecurityCode" name="cardSecurityCode" placeholder="123" required>
+                                </div>
+                            </div>
+                          </div>
+                            
+                                <button type="submit" class="site-btn">Place Order</button>
+                              </form>
+                            </div>
+                          </div>
                     </div>
                 </form>
             </div>
@@ -409,6 +467,37 @@
         <script src="js/owl.carousel.min.js"></script>
         <script src="js/jquery.nicescroll.min.js"></script>
         <script src="js/main.js"></script>
+        <script>
+            // Get the modal element
+            var modal = document.getElementById("myModal");
+            
+            // Get the <span> element that closes the modal
+            var closeBtn = document.getElementsByClassName("close")[0];
+            
+            // Function to open the modal
+            function openModal() {
+              modal.style.display = "block";
+            }
+            
+            // Function to close the modal
+            function closeModal() {
+              modal.style.display = "none";
+            }
+            
+            // Event listener to open the modal when the coupon link is clicked
+            document.querySelector(".coupon__link a").addEventListener("click", openModal);
+            
+            // Event listener to close the modal when the close button is clicked
+            closeBtn.addEventListener("click", closeModal);
+            
+            // Event listener to close the modal when the user clicks outside of it
+            window.addEventListener("click", function(event) {
+              if (event.target == modal) {
+                closeModal();
+              }
+            });
+            </script>
+            
     </body>
 
     </html>
